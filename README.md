@@ -1,6 +1,6 @@
 # OpenSourceCabbages-FrontEnd
 
-E-commerce – sales site (similar to amazon – selling from suppliers)
+Super awesome site where you can order products directly from suppliers at a huge discount.
 
 ## Development
 
