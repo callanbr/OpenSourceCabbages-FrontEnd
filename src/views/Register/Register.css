@@ -1,0 +1,19 @@
+.Register h1, h3 {
+    color: darkslategray;
+    text-align: center;
+}
+
+
+.Form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-right: 180px;
+    margin-left: 180px;
+}
+
+button:hover {
+    background-color: blue;
+    color: whitesmoke;
+}
