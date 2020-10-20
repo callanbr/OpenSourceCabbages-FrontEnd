@@ -9,7 +9,7 @@ export default function Product(props) {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await axios.get(`${url}/products`);
+      const res = await axios.get(`${url}/product`);
       setProducts(res.data);
     };
     fetchProducts();
