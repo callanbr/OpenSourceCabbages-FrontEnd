@@ -14,6 +14,9 @@ export default function NavBar(props) {
          <Link to='/register' className='link'>
             Register
          </Link>
+         <Link to='/product' className='link'>
+            Product
+         </Link>
       </>
    );
 }
