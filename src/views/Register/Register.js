@@ -1,9 +1,10 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import './Register.css';
-
+import Button from '../../components/Button/Button';
 
 export default function Register(props) {
+  
 
   const { register, errors, handleSubmit, unregister } = useForm();
   const onSubmit = (data, e) => console.log(data, e);
@@ -18,19 +19,17 @@ export default function Register(props) {
             <h4>Please enter a username below</h4>
             <input name="username" type ="text" placeholder="Username" ref={register({required: true})} />
             {errors.username && "You must choose a username"}
-
+            
             <div className="passwrapper">
             <h4>Please enter a password</h4>
             <input name="password" type="password" placeholder="Password" ref={register({minLength: 8, required: true})} />
             {errors.password && "Password must contain at least 8 characters"}
             </div>
+            <Button type="submit" color='dark' size='sm' onClick={handleSubmit(onSubmit)}>Submit</Button>
             <br />
-            <button type="submit" onClick={handleSubmit(onSubmit)}>Submit</button>
-            <br />
-            <br />
-            <br />
-            <br />
-            <button type="button" onClick={() => unregister("username")}>Click Here to Unregister</button>
+            <Button type="button" color='light' size='sm' onClick={() => unregister("username")}>
+            Unregister
+         </Button>
         </form>
           </div>
          

@@ -1,4 +1,8 @@
-.Register h1, h3 {
+body {
+    background-color: rgb(222, 233, 222);
+}
+
+h1, h3 {
     color: darkslategray;
     text-align: center;
 }
@@ -14,6 +18,14 @@
 }
 
 button:hover {
-    background-color: blue;
+    background-color: rgb(74, 74, 150);
     color: whitesmoke;
 }
+
+button {
+    padding: 4px;
+    margin: 15px 5px;
+    border-radius: 4px;
+}
+
+
