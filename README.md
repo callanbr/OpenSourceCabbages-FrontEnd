@@ -9,3 +9,10 @@ Super awesome site where you can order products directly from suppliers at a hug
 -  Front End - React
 -  Backend - Java - Spring(Maven)
 -  Database - SQL
+
+## Brand
+
+- Primary color: #
+- Secondary color: #
+- Primary font: 
+- Secondary font: 

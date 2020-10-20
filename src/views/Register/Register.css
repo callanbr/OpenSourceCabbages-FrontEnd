@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(222, 233, 222);
+}
+
+h1, h3 {
+    color: darkslategray;
+    text-align: center;
+}
+
+
+.Form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-right: 180px;
+    margin-left: 180px;
+}
+
+button:hover {
+    background-color: rgb(74, 74, 150);
+    color: whitesmoke;
+}
+
+button {
+    padding: 4px;
+    margin: 15px 5px;
+    border-radius: 4px;
+}
+
+
