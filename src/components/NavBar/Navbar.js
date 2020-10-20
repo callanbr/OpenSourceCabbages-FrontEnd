@@ -11,8 +11,8 @@ export default function NavBar(props) {
          <Link to='/about' className='link'>
             About
          </Link>
-         <Link to='/space' className='link'>
-            Space
+         <Link to='/register' className='link'>
+            Register
          </Link>
       </>
    );
