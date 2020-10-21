@@ -8,13 +8,13 @@ export default function About(props) {
       <h1>Open Source Cabbage Contributors</h1>
 
       <div className="bio">
-        <tr>
+        <div>
           <img
             src="https://i.ibb.co/kXL09SP/brain.jpg"
             alt="Lincoln"
             className="image"
           ></img>
-          <td>Lincoln "Face" Gage</td>
+          <p>Lincoln "Face" Gage</p>
           <p>
             Chupa chups macaroon sesame snaps sweet carrot cake brownie. Cotton
             candy powder tart gummies fruitcake halvah danish. Sweet roll
@@ -35,7 +35,7 @@ export default function About(props) {
             alt="Milton"
             className="image"
           ></img>
-          <td>Milton "Howling Mad Murdock" Grady</td>
+          <p>Milton "Howling Mad Murdock" Grady</p>
           <p>
             Cake lemon drops candy canes tootsie roll sugar plum cookie cake
             cotton candy halvah. Pudding biscuit topping danish liquorice carrot
@@ -51,15 +51,15 @@ export default function About(props) {
             candy canes chocolate macaroon halvah tiramisu tiramisu. Macaroon
             cake macaroon candy canes.
           </p>
-        </tr>
+        </div>
 
-        <tr>
+        <div>
           <img
             src="https://i.ibb.co/kXL09SP/brain.jpg"
             alt="Billy"
             className="image"
           ></img>
-          <td>Billy "B.A. Baracus" Le</td>
+          <p>Billy "B.A. Baracus" Le</p>
           <p>
             Gummies pastry macaroon donut cake jelly marzipan powder. Chupa
             chups dessert chocolate jelly muffin donut candy wafer. Cheesecake
@@ -80,7 +80,7 @@ export default function About(props) {
             alt="Anaka"
             className="image"
           ></img>
-          <td>Anaka "Hannibal" Norfleet</td>
+          <p>Anaka "Hannibal" Norfleet</p>
           <p>
             Sesame snaps caramels sweet candy canes muffin macaroon. Candy
             cupcake chocolate chocolate cake sweet roll gummi bears. Carrot cake
@@ -95,7 +95,7 @@ export default function About(props) {
             Carrot cake jelly beans chocolate cake tiramisu soufflé. Cheesecake
             halvah tart cupcake ice cream topping croissant.
           </p>
-        </tr>
+        </div>
       </div>
     </>
   );

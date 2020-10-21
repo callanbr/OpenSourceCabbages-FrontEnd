@@ -17,6 +17,9 @@ export default function NavBar(props) {
       <Link to="/product" className="link">
         Product
       </Link>
+      <Link to="/login" className="link">
+        Login
+      </Link>
     </>
   );
 }
