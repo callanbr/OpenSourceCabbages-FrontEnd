@@ -1,0 +1,13 @@
+.bio {
+  padding: 50px;
+  margin: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+image {
+  height: auto;
+  width: 100px;
+  transition: width 1.2s;
+  margin-right: 10px;
+}
