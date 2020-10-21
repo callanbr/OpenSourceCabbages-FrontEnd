@@ -22,11 +22,13 @@ export default function Product(props) {
         {products.map((product) => (
           <div key={product.productId} className="eachProduct">
             <img src={product.imageUrl} className="image" />
-            {product.productName + "    "}
-            {"$" + product.price}
-            <Link to="/cart" className="link">
+            {product.description}
+            Price: {"$" + product.price}
+            <p className="stock">{product.inventory} in Stock </p>
+            <Link to="/cart" className="cartLink">
               Add to cart
             </Link>
+            <p>{product.productName}</p>
           </div>
         ))}
       </div>
