@@ -1,17 +1,23 @@
 .productContainer {
   border-radius: 8px;
-  box-shadow: 0 14px 26px -12px rgba(51, 51, 51, 0.42),
-    0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(51, 51, 51, 0.2);
+
   padding: 5px;
-  margin: 5px;
+  margin: 15px;
 }
 .image {
   height: auto;
   width: 100px;
   transition: width 1.2s;
+  margin-right: 10px;
 }
 .image:hover {
   height: auto;
-  width: 200px;
+  width: 240px;
   transition: width 1.2s;
+}
+
+.eachProduct {
+  box-shadow: 0 14px 26px -12px rgba(51, 51, 51, 0.42),
+    0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(51, 51, 51, 0.2);
+  padding: 5px 3px;
 }
