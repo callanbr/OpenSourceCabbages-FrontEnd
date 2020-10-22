@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Product.css";
-import { Grid, Cell } from "react-flexr";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../Global";
 
@@ -17,11 +17,18 @@ export default function Product(props) {
 
   return (
     <>
-      <h1>Products Page</h1>
-      <div>
+      <h1>Product View</h1>
+      <div className="productContainer">
         {products.map((product) => (
-          <div key={product.productId}>
-            <img src={product.imageUrl} />
+          <div key={product.productId} className="eachProduct">
+            <img src={product.imageUrl} className="image" />
+            {product.description}
+            Price: {"$" + product.price}
+            <p className="stock">{product.inventory} in Stock </p>
+            <Link to="/cart" className="cartLink">
+              Add to cart
+            </Link>
+            <p>{product.productName}</p>
           </div>
         ))}
       </div>

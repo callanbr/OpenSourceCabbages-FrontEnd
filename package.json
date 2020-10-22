@@ -8,12 +8,13 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-flexr": "^3.0.0-beta.2",
     "react-hook-form": "^6.9.3",
+    "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {

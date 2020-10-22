@@ -5,7 +5,7 @@ import "./NavBar.css";
 export default function NavBar(props) {
   return (
     <>
-      <Link to="/home" className="link">
+      <Link to="/" className="link">
         Home
       </Link>
       <Link to="/about" className="link">
