@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../Global";
+import { url, Title, Image } from "../../Global";
 import styled from "styled-components";
 
 export default function Product(props) {
@@ -16,18 +16,13 @@ export default function Product(props) {
     fetchProducts();
   }, []);
 
-  const Title = styled.h1`
-    color: #632c6b;
-    text-align: center;
-  `;
-
   const Container = styled.div`
-    padding: 40px;
+    padding: 20px;
     margin: 20px;
   `;
 
   const EachProduct = styled.div`
-    background-color: #b2d459;
+    background-color: #94d1ab;
     box-shadow: 0 14px 26px -10px rgba(51, 51, 51, 0.4),
       0 4px 23px 0px rgba(0, 0, 0, 0.12), 2px 8px 10px 1px rgba(51, 51, 51, 0.4);
     padding: 5px;
@@ -40,19 +35,6 @@ export default function Product(props) {
     text-align: center;
   `;
 
-  const Image = styled.img`
-    height: auto;
-    width: 100px;
-    transition: width 0.4s;
-    margin-right: 10px;
-
-    &:hover {
-      height: auto;
-      width: 400px;
-      transition: width 0.7s;
-    }
-  `;
-
   const Stock = styled.section`
     float: right;
     padding: 10px 50px;
@@ -61,7 +43,7 @@ export default function Product(props) {
 
   const CartLink = styled.p`
     float: right;
-    padding: 60px;
+    padding: 10px;
   `;
 
   const ProductName = styled.p`

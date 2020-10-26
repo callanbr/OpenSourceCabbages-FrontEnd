@@ -2,23 +2,12 @@ import React from "react";
 import { Component } from "react";
 import "./About.css";
 import styled from "styled-components";
+import { Image, Title } from "../../Global";
 
 export default function About(props) {
-  const Image = styled.img`
-    height: auto;
-    width: 100px;
-    transition: width 0.5s;
-    margin-right: 10px;
-
-    &:hover {
-      height: auto;
-      width: 300px;
-      transition: width 0.8s;
-    }
-  `;
   return (
     <>
-      <h1>Open Source Cabbage Contributors</h1>
+      <Title>Open Source Cabbage Contributors</Title>
 
       <div className="bio">
         <Image
