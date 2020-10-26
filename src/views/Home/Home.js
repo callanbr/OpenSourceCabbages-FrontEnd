@@ -1,12 +1,11 @@
 import React from "react";
 import "./Home.css";
-
-//import Button from '../../components/Button/Button';
+import { Title } from "../../Global";
 
 export default function Home(props) {
   return (
     <>
-      <h1>Home Works</h1>
+      <Title>Home Works</Title>
     </>
   );
 }
