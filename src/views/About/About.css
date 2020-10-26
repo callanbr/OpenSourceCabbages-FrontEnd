@@ -1,13 +1,9 @@
 .bio {
-  padding: 50px;
+  padding: 10px;
   margin: 50px;
-  display: flex;
-  justify-content: space-around;
 }
 
-image {
-  height: auto;
-  width: 100px;
-  transition: width 1.2s;
-  margin-right: 10px;
+.bio.h3 {
+  color: red;
+  font-size: 1.1rem;
 }

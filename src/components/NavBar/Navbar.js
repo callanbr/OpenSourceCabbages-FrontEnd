@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { DiJava } from "react-icons/di";
 
 export default function NavBar(props) {
   return (
     <>
+      <DiJava />
       <Link to="/" className="link">
         Home
       </Link>
