@@ -20,9 +20,30 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-export const Subtitle = styled.h3`
+export const H2 = styled.h2`
+  padding: 15px 2px;
+`;
+
+export const H3 = styled.h3`
   color: darkslategray;
   text-align: center;
+`;
+
+export const H5 = styled.h5`
+  text-align: center;
+  color: rgb(74, 74, 150);
+`;
+export const Intro = styled.h1`
+  color: green;
+  text-align: center;
+`;
+
+export const Banner = styled.div`
+  background-color: #f2dbff;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  margin-top: -54px;
 `;
 
 export const DarkButton = styled.button`
@@ -51,8 +72,13 @@ export const Form = styled.form`
   border: 1px solid black;
   margin-right: 300px;
   margin-left: 300px;
+  margin-top: 60px;
 `;
 
 export const Section = styled.section`
   padding: 10px;
+`;
+
+export const Container = styled.div`
+  margin-top: 140px;
 `;
