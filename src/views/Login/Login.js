@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Title, H3, DarkButton, Form, Section, Container } from "../../Global";
 import AuthService from "./AuthService";
+import "./Login.css";
 
 export default function Login(props) {
   const [state, setState] = useState({
@@ -75,7 +76,7 @@ export default function Login(props) {
             />
           </Section>
           <Section>
-            <Link to="/register" className="link">
+            <Link className="centerLink" to="/register">
               Sign up
             </Link>
           </Section>
@@ -87,7 +88,7 @@ export default function Login(props) {
 
         <H3>-or-</H3>
         <H3>
-          <Link to="/home" className="link">
+          <Link to="/home" className="centerLink">
             Continue as a Guest
           </Link>
         </H3>
