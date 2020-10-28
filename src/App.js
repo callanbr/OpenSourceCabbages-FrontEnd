@@ -7,7 +7,6 @@ import Register from "./views/Register/Register";
 import RegisterSuccess from "./views/Register/RegisterSuccess";
 import Product from "./views/Product/Product";
 import Login from "./views/Login/Login";
-import "./App.css";
 
 export default function App(props) {
   return (
