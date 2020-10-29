@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Title } from "../../Global";
 
 export default function RegisterSuccess(props) {
   return (
     <div>
-      <h1>Thank you for registering!</h1>
+      <Title>Thank you for registering!</Title>
       <Link to="/login">Go to Login Page</Link>
     </div>
   );

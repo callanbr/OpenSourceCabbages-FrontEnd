@@ -1,9 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "./Register.css";
-import Button from "../../components/Button/Button";
 import axios from "axios";
-import { url } from "../../Global";
+import { url, Title, Subtitle, DarkButton, Form } from "../../Global";
+import styled from "styled-components";
 
 export default function Register(props) {
   const { register, errors, handleSubmit } = useForm();
@@ -19,10 +18,10 @@ export default function Register(props) {
 
   return (
     <div className="Register">
-      <h1>Registration Page</h1>
-      <h3>Fill out the form below and click submit.</h3>
+      <Title>Registration Page</Title>
+      <Subtitle>Fill out the form below and click submit.</Subtitle>
       <div className="Form">
-        <form onSubmit={handleSubmit(onSubmit, onError)}>
+        <Form onSubmit={handleSubmit(onSubmit, onError)}>
           <h4>Please enter a username below</h4>
           <input
             name="username"
@@ -31,7 +30,6 @@ export default function Register(props) {
             ref={register({ required: true })}
           />
           {errors.username && "You must choose a username"}
-
           <div className="passwrapper">
             <h4>Please enter a password</h4>
             <input
@@ -42,15 +40,10 @@ export default function Register(props) {
             />
             {errors.password && "Password must contain at least 8 characters"}
           </div>
-          <Button
-            type="submit"
-            color="dark"
-            size="sm"
-            onClick={handleSubmit(onSubmit)}
-          >
+          <DarkButton dark type="submit" onClick={handleSubmit(onSubmit)}>
             Submit
-          </Button>
-        </form>
+          </DarkButton>
+        </Form>
       </div>
     </div>
   );

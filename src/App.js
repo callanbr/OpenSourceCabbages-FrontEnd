@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import NavBar from "./components/NavBar/Navbar";
 import Home from "./views/Home/Home";
 import About from "./views/About/About";
 import Register from "./views/Register/Register";
 import RegisterSuccess from "./views/Register/RegisterSuccess";
 import Product from "./views/Product/Product";
-import { FaDragon } from "react-icons//fa";
 import Login from "./views/Login/Login";
+import "./App.css";
 
 export default function App(props) {
   return (
