@@ -1,11 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import "./NavBar.css";
 import logo from "../../Logo/Logo.png";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import { DarkButton } from "../../Global";
+import AuthService from "../../views/Login/AuthService";
+let Auth = new AuthService();
 
 export default function NavBar(props) {
+  const [state, setState] = useState({
+    displayLogin: "",
+  });
+
+  useEffect(() => {
+    if (Auth.loggedIn()) {
+      setState({
+        ...state,
+        displayLogin: (
+          <Link to="/login" onClick={handleLogout} className="link">
+            Logout
+          </Link>
+        ),
+      });
+    } else {
+      setState({
+        ...state,
+        displayLogin: (
+          <Link to="/login" className="link">
+            Login
+          </Link>
+        ),
+      });
+    }
+  }, []);
+  const handleLogout = () => {
+    let confirm = window.confirm("Logout?");
+    if (confirm) {
+      Auth.logout();
+      setState({
+        ...state,
+        displayLogin: (
+          <Link to="/login" className="link">
+            Login
+          </Link>
+        ),
+      });
+      // props.history.replace("/login");
+      // change logout to login
+    }
+  };
   return (
     <>
       <Navbar collapseOnSelect expand="lg" fixed="top" className="color-nav">
@@ -25,9 +69,7 @@ export default function NavBar(props) {
             <Link to="/product" className="link">
               Product
             </Link>
-            <Link to="/login" className="link">
-              Login
-            </Link>
+            {state.displayLogin}
           </Navbar.Collapse>
         </Nav>
       </Navbar>
