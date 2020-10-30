@@ -1,10 +1,7 @@
 .link {
-  padding: 10px;
-  font-size: 1em;
   color: #632c6b;
-}
-.color-nav {
-  background-color: #c5e3d0;
+  float: right;
+  padding: 10px;
 }
 
 .link:hover {

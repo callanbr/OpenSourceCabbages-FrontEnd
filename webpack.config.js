@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -29,6 +30,14 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "./src/_redirects",
+          to: "",
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       title: "Production",
       template: "./src/index.html",
