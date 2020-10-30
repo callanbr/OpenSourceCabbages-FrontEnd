@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { url, Title, Image } from "../../Global";
 import styled from "styled-components";
+import "./Product.css";
 
 export default function Product(props) {
   const [products, setProducts] = useState([]);{
@@ -57,19 +58,24 @@ export default function Product(props) {
 
   const Description = styled.section`
     display: inline-block;
+    justify-content: flex-start;
     width: 700px;
+    margin-left: 80px;
+    margin-top: 40px;
+  `;
+
+  const Price = styled.section`
+    display: inline-block;
+    width: 200px;
     text-align: center;
+    margin-top: 50px;
+    margin-left: 50px;
   `;
 
   const Stock = styled.section`
     float: right;
-    padding: 10px 50px;
-    color: #632c6b;
-  `;
-
-  const CartLink = styled.p`
-    float: right;
     padding: 10px;
+    color: #aa2a31;
   `;
 
   const ProductName = styled.p`
@@ -94,11 +100,11 @@ export default function Product(props) {
           <EachProduct key={product.productId}>
             <Image src={product.imageUrl} />
             <Description>{product.description}</Description>
-            Price: {"$" + product.price}
+            <Price>Price: {"$" + product.price}</Price>
             <Stock>{product.inventory} in Stock </Stock>
-            <CartLink>
-              <Link to="/cart">Add to cart</Link>
-            </CartLink>
+            <Link to="/cart" className="link">
+              Add to cart
+            </Link>
             <ProductName>{product.productName}</ProductName>
           </EachProduct>
         ))}

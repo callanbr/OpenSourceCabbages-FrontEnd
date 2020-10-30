@@ -1,29 +1,78 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
 import "./NavBar.css";
-import { DiJava } from "react-icons/di";
 import logo from "../../Logo/Logo.png";
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import { DarkButton } from "../../Global";
+import AuthService from "../../views/Login/AuthService";
+let Auth = new AuthService();
 
 export default function NavBar(props) {
+  const [state, setState] = useState({
+    displayLogin: "",
+  });
+
+  useEffect(() => {
+    if (Auth.loggedIn()) {
+      setState({
+        ...state,
+        displayLogin: (
+          <Link to="/login" onClick={handleLogout} className="link">
+            Logout
+          </Link>
+        ),
+      });
+    } else {
+      setState({
+        ...state,
+        displayLogin: (
+          <Link to="/login" className="link">
+            Login
+          </Link>
+        ),
+      });
+    }
+  }, []);
+  const handleLogout = () => {
+    let confirm = window.confirm("Logout?");
+    if (confirm) {
+      Auth.logout();
+      setState({
+        ...state,
+        displayLogin: (
+          <Link to="/login" className="link">
+            Login
+          </Link>
+        ),
+      });
+      // props.history.replace("/login");
+      // change logout to login
+    }
+  };
   return (
     <>
-      <img src={logo} width="120" height="50"></img>
-      <Link to="/" className="link">
-        Home <DiJava />
-      </Link>
-      <Link to="/about" className="link">
-        About
-      </Link>
-      <Link to="/register" className="link">
-        Register
-      </Link>
-      <Link to="/product" className="link">
-        Product
-      </Link>
-      <Link to="/login" className="link">
-        Login
-      </Link>
+      <Navbar collapseOnSelect expand="lg" fixed="top" className="color-nav">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        <Link to="/" className="link">
+          <img src={logo} width="120" height="50"></img>
+        </Link>
+        <Nav className="navbar-nav ml-auto">
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Link to="/about" className="link">
+              About
+            </Link>
+            <Link to="/register" className="link">
+              Register
+            </Link>
+            <Link to="/product" className="link">
+              Product
+            </Link>
+            {state.displayLogin}
+          </Navbar.Collapse>
+        </Nav>
+      </Navbar>
     </>
   );
 }
