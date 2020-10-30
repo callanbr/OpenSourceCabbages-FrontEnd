@@ -6,16 +6,42 @@ import { url, Title, Image } from "../../Global";
 import styled from "styled-components";
 
 export default function Product(props) {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);{
+    const [state, setState] = useState({
+      query: ""
+   });
+   const handleChange = (e) => {
+    const value = e.target.value;
+    setState({
+       ...state,
+       [e.target.name]: value,
+    });
+ };
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await axios.get(`${url}/product`);
-      setProducts(res.data);
-    };
-    fetchProducts();
-  }, []);
-
+    useEffect(() => {
+      const fetchProducts = async () => {
+        const res = await axios.get(`${url}/product`);
+        setProducts(res.data);
+      };
+      fetchProducts();
+    },
+    []);
+    const updateEventHandler = event =>{
+      let matching = [];
+      for(let i in products){
+        if(products[i].productName
+          .toLowerCase()
+          .includes(state.query.toLowerCase())){
+          matching.push(products[i]);
+        }
+      }
+      setProducts(matching);
+    }
+    const resetPageHandler = event =>{
+      window.location.reload()
+    }
+  
+  
   const Container = styled.div`
     padding: 20px;
     margin: 20px;
@@ -52,8 +78,17 @@ export default function Product(props) {
   `;
 
   return (
+    
     <>
       <Title>Products Page</Title>
+      <div>
+      <input
+      name="query"
+      placeholder="Search by Name"
+      onChange={handleChange} /><br/>
+      <button type="submit" onClick={updateEventHandler}>Go!</button>
+      <button onClick={resetPageHandler}>Clear Search!</button>
+      </div>
       <Container>
         {products.map((product) => (
           <EachProduct key={product.productId}>
@@ -70,4 +105,5 @@ export default function Product(props) {
       </Container>
     </>
   );
+  }
 }
