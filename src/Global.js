@@ -29,6 +29,11 @@ export const H3 = styled.h3`
   text-align: center;
 `;
 
+export const H4 = styled.h4`
+  color: #026928;
+  text-align: center;
+`;
+
 export const H5 = styled.h5`
   text-align: center;
   color: rgb(74, 74, 150);
@@ -53,8 +58,8 @@ export const DarkButton = styled.button`
   margin: 15px 5px;
   border-radius: 4px;
   transition: 0.25s all ease-out;
-  box-shadow: 0 2px 2px 0 rgba(51, 51, 51, 0.14),
-    0 3px 1px -2px rgba(51, 51, 51, 0.2), 0 1px 5px 0 rgba(51, 51, 51, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(51, 51, 51, 0.14), 0 3px 1px -2px rgba(51, 51, 51, 0.2),
+    0 1px 5px 0 rgba(51, 51, 51, 0.12);
 
   &:hover {
     background-color: rgb(74, 74, 150);
@@ -73,6 +78,35 @@ export const Form = styled.form`
   margin-right: 300px;
   margin-left: 300px;
   margin-top: 60px;
+`;
+
+export const EachProduct = styled.div`
+  background-color: #94d1ab;
+  box-shadow: 0 14px 26px -10px rgba(51, 51, 51, 0.4), 0 4px 23px 0px rgba(0, 0, 0, 0.12),
+    2px 8px 10px 1px rgba(51, 51, 51, 0.4);
+  padding: 5px;
+  margin: 20px;
+`;
+
+export const Description = styled.section`
+  display: inline-block;
+  justify-content: flex-start;
+  width: 700px;
+  margin-left: 80px;
+  margin-top: 40px;
+`;
+
+export const Price = styled.section`
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 50px;
+`;
+
+export const ProductName = styled.p`
+  padding: 5px;
+  display: block;
 `;
 
 export const Section = styled.section`
