@@ -21,17 +21,11 @@ export default function Home(props) {
     }
   }, []);
 
-  const handleLogout = () => {
-    Auth.logout();
-    props.history.replace("/login");
-  };
-
   return (
     <>
       <Container>
         <Title>Home Works</Title>
         <H3>Welcome {state.username}!</H3>
-        <DarkButton onClick={handleLogout}>Logout</DarkButton>
       </Container>
     </>
   );
