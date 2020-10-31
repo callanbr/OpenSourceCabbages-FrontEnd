@@ -20,17 +20,14 @@ export default function Login(props) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      "Username: " + state.username + ". Password: " + state.password
-    );
     Auth.login(state.username, state.password)
       .then((res) => {
         setTimeout(function () {
           props.history.replace("/");
+          window.location.reload();
         }, 100);
       })
       .catch((err) => {
-        // console.log('LOGIN FAILED', err);
         setState({
           ...state,
           badLogin: (

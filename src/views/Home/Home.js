@@ -21,11 +21,6 @@ export default function Home(props) {
     }
   }, []);
 
-  const handleLogout = () => {
-    Auth.logout();
-    props.history.replace("/login");
-  };
-
   return (
     <>
       <Container>
