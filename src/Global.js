@@ -21,7 +21,23 @@ export const Title = styled.h1`
 `;
 
 export const H2 = styled.h2`
-  padding: 15px 2px;
+  padding: 30px 2px;
+  color: rgb(74, 74, 150);
+  text-align: center;
+
+  @keyframes example {
+    from {
+      background-color: purple;
+    }
+    to {
+      background-color: green;
+    }
+    width: 400px;
+    height: 200px;
+    background-color: purple;
+    animation-name: example;
+    animation-duration: 4s;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -78,6 +94,7 @@ export const Form = styled.form`
   margin-right: 300px;
   margin-left: 300px;
   margin-top: 60px;
+  padding: 15px;
 `;
 
 export const EachProduct = styled.div`
@@ -109,8 +126,12 @@ export const ProductName = styled.p`
   display: block;
 `;
 
+export const HomePar = styled.p`
+  padding: 5px;
+  display: block;
+`;
 export const Section = styled.section`
-  padding: 10px;
+  padding: 15px;
 `;
 
 export const Container = styled.div`

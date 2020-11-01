@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { Title, H3, DarkButton, Form, Section, Container } from "../../Global";
 import AuthService from "./AuthService";
 import "./Login.css";
@@ -30,11 +29,7 @@ export default function Login(props) {
       .catch((err) => {
         setState({
           ...state,
-          badLogin: (
-            <h1 style={{ color: "rgb(205,109,95)", fontSize: "1em" }}>
-              Invalid username or password
-            </h1>
-          ),
+          badLogin: <Title>Invalid username or password</Title>,
         });
       });
   };
@@ -55,6 +50,7 @@ export default function Login(props) {
           <Section>
             <label htmlFor="username">Username: </label>
             <input
+              style={{ marginLeft: "10px" }}
               type="text"
               id="username"
               name="username"
@@ -63,8 +59,9 @@ export default function Login(props) {
             />
           </Section>
           <Section>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Password: </label>
             <input
+              style={{ marginLeft: "10px" }}
               type="password"
               id="password"
               name="password"
@@ -82,8 +79,9 @@ export default function Login(props) {
             Log in
           </DarkButton>
         </Form>
-
+        <br />
         <H3>-or-</H3>
+        <br />
         <H3>
           <Link to="/home" className="centerLink">
             Continue as a Guest

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { url, Title, Image, EachProduct, Description, Price, ProductName } from "../../Global";
+import { url, Title, Image, EachProduct, Description, Price, ProductName, Container } from "../../Global";
 import styled from "styled-components";
 import "./Product.css";
 
@@ -17,11 +17,6 @@ export default function Product(props) {
     fetchProducts();
   }, []);
 
-  const Container = styled.div`
-    padding: 20px;
-    margin: 20px;
-  `;
-
   const Stock = styled.section`
     float: right;
     padding: 10px;
@@ -30,8 +25,8 @@ export default function Product(props) {
 
   return (
     <>
-      <Title>Products Page</Title>
       <Container>
+        <Title>Products Page</Title>
         {products.map((product) => (
           <EachProduct key={product.productId}>
             <Image src={product.imageUrl} />
