@@ -7,10 +7,10 @@ export default function Footer(props) {
     background-color: #dfe8e0;
     padding: 5px;
     font-size: 0.7rem;
-    position: relative;
+    position: sticky;
     bottom: 0;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 344px;
     width: 100%;
   `;
 
