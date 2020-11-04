@@ -55,6 +55,7 @@ export default function Product(props) {
     window.location.reload();
   };
 
+
   const handleCart = (product) => {
     state.cart.push(product);
     localStorage.setItem('cart', state.cart);
@@ -67,6 +68,7 @@ export default function Product(props) {
   `;
 
   return (
+    
     <>
       <Container>
         <input
@@ -95,4 +97,5 @@ export default function Product(props) {
       </Container>
     </>
   );
+  }
 }
