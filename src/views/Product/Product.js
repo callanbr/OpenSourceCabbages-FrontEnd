@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import {
   url,
   Title,
@@ -11,14 +11,15 @@ import {
   Price,
   ProductName,
   Container,
-} from "../../Global";
-import styled from "styled-components";
-import "./Product.css";
+} from '../../Global';
+import styled from 'styled-components';
+import './Product.css';
 
 export default function Product(props) {
   const [products, setProducts] = useState([]);
   const [state, setState] = useState({
-    query: "",
+    query: '',
+    cart: [],
   });
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Product(props) {
       setProducts(res.data);
     };
     fetchProducts();
+    state.cart.push(localStorage.getItem('cart'));
   }, []);
 
   const handleChange = (e) => {
@@ -53,35 +55,40 @@ export default function Product(props) {
     window.location.reload();
   };
 
+  const handleCart = (product) => {
+    state.cart.push(product);
+    localStorage.setItem('cart', state.cart);
+  };
+
   const Stock = styled.section`
     float: right;
     padding: 10px;
     color: #aa2a31;
-  `; 
+  `;
 
   return (
     <>
       <Container>
         <input
-          name="query"
-          placeholder="Search by Name"
+          name='query'
+          placeholder='Search by Name'
           onChange={handleChange}
         />
         <br />
-        <button type="submit" onClick={updateEventHandler}>
+        <button type='submit' onClick={updateEventHandler}>
           Go!
         </button>
         <button onClick={resetPageHandler}>Clear Search!</button>
         <Title>Products Page</Title>
-        {products.map((product) => (
-          <EachProduct key={product.productId}>
+        {products.map((product, index) => (
+          <EachProduct key={index}>
             <Image src={product.imageUrl} />
             <Description>{product.description}</Description>
-            <Price>Price: {"$" + product.price}</Price>
+            <Price>Price: {'$' + product.price}</Price>
             <Stock>{product.inventory} in Stock </Stock>
-            <Link to="/cart" className="link">
+            <button onClick={() => handleCart(product.productId)}>
               Add to cart
-            </Link>
+            </button>
             <ProductName>{product.productName}</ProductName>
           </EachProduct>
         ))}
