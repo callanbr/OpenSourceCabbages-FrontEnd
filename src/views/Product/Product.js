@@ -28,7 +28,6 @@ export default function Product(props) {
       setProducts(res.data);
     };
     fetchProducts();
-    state.cart.push(localStorage.getItem('cart'));
   }, []);
 
   const handleChange = (e) => {
@@ -55,10 +54,13 @@ export default function Product(props) {
     window.location.reload();
   };
 
-
   const handleCart = (product) => {
-    state.cart.push(product);
-    localStorage.setItem('cart', state.cart);
+    localStorage.setItem(
+      product,
+      !localStorage.getItem(product)
+        ? 1
+        : parseInt(localStorage.getItem(product)) + 1
+    );
   };
 
   const Stock = styled.section`
@@ -68,7 +70,6 @@ export default function Product(props) {
   `;
 
   return (
-    
     <>
       <Container>
         <input
@@ -97,5 +98,4 @@ export default function Product(props) {
       </Container>
     </>
   );
-  }
 }

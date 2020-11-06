@@ -17,18 +17,18 @@ import {
 export default function Product(props) {
   const [products, setProducts] = useState([]);
 
-  let ls =
-    localStorage.getItem('cart') == null ? '' : localStorage.getItem('cart');
+  let keys = Object.keys(localStorage);
 
-  let storageData = ls.split(',').map(function (item) {
-    return parseInt(item, 10);
+  let storageData = keys.filter(function (item) {
+    return parseInt(item) == item;
   });
 
   const findCartInfo = (data) => {
+    storageData.sort();
     let newData = [];
     for (let i in data) {
       for (let x in storageData) {
-        if (data[i].productId == storageData[x]) {
+        if (data[i].productId == parseInt(storageData[x])) {
           newData.push(data[i]);
         }
       }
@@ -44,34 +44,31 @@ export default function Product(props) {
     fetchProducts();
   }, []);
 
-  const handleRemoveCart = () => {
-    console.log(products);
-    localStorage.removeItem('cart');
-    // state.cart.push(product);
-    // localStorage.setItem('cart', state.cart);
+  const handleRemoveCart = (product) => {
+    localStorage.removeItem(product);
+    location.reload();
   };
 
   const DisplayWhat = () => {
-    let result;
-    localStorage.getItem('cart') == null
-      ? (result = <Title>Cart is Empty</Title>)
-      : (result = (
-          <span>
-            {products.map((product, index) => (
-              <EachProduct key={index}>
-                <Image src={product.imageUrl} />
-                <Description>{product.description}</Description>
-                <Price>Price: {'$' + product.price}</Price>
-                <Stock>{product.inventory} in Stock </Stock>
-                <button onClick={() => handleRemoveCart(product.productId)}>
-                  Remove from cart
-                </button>
-
-                <ProductName>{product.productName}</ProductName>
-              </EachProduct>
-            ))}
-          </span>
-        ));
+    let result = (
+      <span>
+        {products.map((product, index) => (
+          <EachProduct key={index}>
+            <Image src={product.imageUrl} />
+            <Description>{product.description}</Description>
+            <Price>
+              Price: {'$' + product.price} <br /> Qty:
+              {localStorage.getItem(product.productId)}
+            </Price>
+            <Stock>{product.inventory} in Stock </Stock>
+            <button onClick={() => handleRemoveCart(product.productId)}>
+              Remove from cart
+            </button>
+            <ProductName>{product.productName}</ProductName>
+          </EachProduct>
+        ))}
+      </span>
+    );
     return result;
   };
 
@@ -84,6 +81,7 @@ export default function Product(props) {
   return (
     <>
       <Container>
+        <button onClick={() => console.log(storageData)}>Show local</button>
         <Title>
           <FontAwesomeIcon icon={faShoppingCart} /> My Cart
         </Title>
